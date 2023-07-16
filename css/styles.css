@@ -1,5 +1,64 @@
 /* --- Main styling file --- */
 
+
 body {
     font-family: 'Trebuchet MS', sans-serif;
+    padding: 50px 0;
+}
+
+.game-block {
+    max-width: 700px;
+    margin: 0 auto;
+}
+.background-block img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+.score-block {
+    height: 270px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0 100px rgba(0, 0, 0, .3);
+}
+.player-block {
+    width: 349px;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .2);
+}
+.player-data {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+.player-name {
+    margin-bottom: 1em;
+    font-size: 1.2rem;
+}
+.player-score {
+    margin: .3em 0;
+    font-size: 3.5rem;
+}
+.player-btn {
+    padding: .7em 2em;
+    white-space: nowrap;
+    color: #fff;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: opacity .15s;
+}
+/* Button customization for each player */
+#player1_btn {
+    background-color: rgb(200, 181, 8);
+}
+#player2_btn {
+    background-color: rgb(99, 171, 248);
+}
+/* ----- ----- ----- ----- ----- */
+.player-btn:hover {
+    opacity: .9;
 }

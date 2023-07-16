@@ -41,3 +41,16 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+/* Additional custom resets */
+a {
+    text-decoration: none;
+    color: #000;
+}
+button {
+    background-color: unset;
+    border: none;
+}
+input {
+    outline: none;
+    border: none;
+}
