@@ -1,10 +1,30 @@
 /* --- Main styling file --- */
 
-
 body {
     font-family: 'Trebuchet MS', sans-serif;
     padding: 50px 0;
 }
+
+/* ----- ----- ----- ----- ----- */
+/* Winner Block */
+.winner-headline {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 1.7em 0 1.5em;
+    font-weight: 500;
+    transition: transform .3s, opacity 2s;
+    transition-timing-function: ease-out;
+}
+#display-winner {
+    font-style: italic;
+    font-weight: 600;
+}
+.hide-winner {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-1000px);
+}
+/* ----- ----- ----- ----- ----- */
 
 .game-block {
     max-width: 700px;
@@ -36,10 +56,11 @@ body {
 .player-name {
     margin-bottom: 1em;
     font-size: 1.2rem;
+    font-weight: 600;
 }
 .player-score {
-    margin: .3em 0;
-    font-size: 3.5rem;
+    margin: .45em 0;
+    font-size: 3.8rem;
 }
 .player-btn {
     padding: .7em 2em;
@@ -51,14 +72,58 @@ body {
     cursor: pointer;
     transition: opacity .15s;
 }
-/* Button customization for each player */
+.player-btn:hover {
+    opacity: .9;
+}
+/* ----- ----- ----- ----- ----- */
+/* Button & display customization for each player */
 #player1_btn {
     background-color: rgb(200, 181, 8);
 }
 #player2_btn {
     background-color: rgb(99, 171, 248);
 }
+.winner {
+    color: #008000;
+}
+.loser {
+    color: #ff0000;
+}
+.winner::before,
+.loser::before {
+    display: block;
+    margin-bottom: .2em;
+    font-size: 1.7rem;
+    opacity: .8;
+}
+.winner::before {
+    content: '🎌';
+}
+.loser::before {
+    content: '😔';
+}
 /* ----- ----- ----- ----- ----- */
-.player-btn:hover {
-    opacity: .9;
+/* Restart Block */
+.restart-block {
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+#restart_btn {
+    font-size: 1rem;
+    margin-top: 2em;
+    border: 0;
+    padding: .7em 2em;
+    background-color: rgba(198, 24, 24, .75);
+    color: #fff;
+    border-radius: 5px;
+    transition: opacity 2.5s, background-color .25s;
+}
+#restart_btn:hover {
+    cursor: pointer;
+    background-color: rgba(136, 16, 38, .65);
+}
+.hide-restart {
+    visibility: hidden;
+    opacity: 0;
 }
