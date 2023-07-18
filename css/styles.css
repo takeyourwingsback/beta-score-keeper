@@ -6,7 +6,7 @@ body {
 }
 
 /* ----- ----- ----- ----- ----- */
-/* Winner Block */
+/* Winner block */
 .winner-headline {
     font-size: 1.5rem;
     text-align: center;
@@ -25,7 +25,103 @@ body {
     transform: translateY(-1000px);
 }
 /* ----- ----- ----- ----- ----- */
-
+/* Settings block */
+.settings-block {
+    max-width: 105px;
+    margin: 0 auto;
+    position: relative;
+}
+.settings-btn {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+.settings-icon {
+    max-width: 20px;
+    transition: transform .4s;
+    cursor: pointer;
+}
+.settings-span:hover + .settings-icon,
+.settings-icon:hover,
+.rotate-icon {
+    transform: rotate(20deg);
+}
+.settings-dropdown {
+    position: absolute;
+    z-index: 100;
+    left: -85%; top: calc(100% + .55em);
+    background-color: #fff;
+    padding: 1em 2em;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.5);
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity .3s ease-in-out, transform .3s ease-in-out;
+    opacity: 0;
+    border-radius: 5px;
+}
+.settings-block.active > .settings-btn + .settings-dropdown {
+    opacity: 1;
+    transform: translate(0);
+    pointer-events: auto;
+}
+.input-block:last-child {
+    margin-bottom: 0;
+}
+.input-block input {
+    margin-top: .5em;
+    margin-bottom: 1.2em;
+    background-color: rgba(248, 224, 224, .7);
+    font-size: .8rem;
+}
+.settings-dropdown hr {
+    margin: 15px auto;
+    display: block;
+    width: 55%;
+    opacity: .5;
+}
+.input-block input[name="playerName"] {
+    width: 160px;
+    padding: .3em 1em;
+    border-radius: 15px;
+}
+.input-warning {
+    font-size: .65rem;
+    font-style: italic;
+    opacity: .75;
+    display: block;
+}
+.input-warning::before {
+    content: '* ';
+    vertical-align: middle;
+    font-size: .8rem;
+    color: rgb(213, 0, 0);
+}
+.input-block input[name="maxScore"] {
+    padding: .4em .5em;
+    max-width: 40px;
+    text-align: center;
+}
+#save_btn {
+    font-size: .9rem;
+    margin: 5px auto 0;
+    display: block;
+    background-color: rgb(45, 189, 45);
+    padding: .3em 1em;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: opacity .3s;
+}
+#save_btn:hover {
+    opacity: .85;
+}
+/* ----- ----- ----- ----- ----- */
+/* Main game block */
 .game-block {
     max-width: 700px;
     margin: 0 auto;
@@ -103,7 +199,7 @@ body {
     content: '😔';
 }
 /* ----- ----- ----- ----- ----- */
-/* Restart Block */
+/* Restart block */
 .restart-block {
     max-width: 300px;
     margin: 0 auto;

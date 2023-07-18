@@ -6,6 +6,7 @@ const P1 = {
     btn: document.querySelector('#player1_btn'),
     displayName: document.querySelector('#player1_name'),
     displayScore: document.querySelector('#player1_score'),
+    input: document.querySelector('#player1_input')
 }
 
 const P2 = {
@@ -16,13 +17,16 @@ const P2 = {
     btn: document.querySelector('#player2_btn'),
     displayName: document.querySelector('#player2_name'),
     displayScore: document.querySelector('#player2_score'),
+    input: document.querySelector('#player2_input')
 }
 
-let maxScore = 7;
+let maxScore = 5;
 
 const winnerHeadline = document.querySelector('.winner-headline');
 const displayWinner = document.querySelector('#display-winner');
 const restartBtn = document.querySelector('#restart_btn');
+const saveBtn = document.querySelector('#save_btn');
+const maxScoreInput = document.querySelector('#maxscore_input');
 
 for (let p of [P1, P2]) {
     p.displayName.textContent = p.name;
@@ -62,4 +66,52 @@ restartBtn.addEventListener('click', () => {
 
     winnerHeadline.classList.toggle('hide-winner');
     restartBtn.classList.toggle('hide-restart');
+})
+
+saveBtn.addEventListener('click', () => {
+    if (!P1.score && !P2.score) {
+        if (P1.input.value && P2.input.value) {
+            if (P1.input.value.length <= 22 && P2.input.value.length <= 22) {
+                P1.name = P1.input.value;
+                P2.name = P2.input.value;
+                P1.displayName.textContent = P1.name;
+                P2.displayName.textContent = P2.name;
+            } else {
+                alert('The names cannot contain more than 22 characters')
+            }
+        }
+        if (maxScoreInput.value > 0) {
+            maxScore = Number(maxScoreInput.value);
+        } else {
+            alert('You cannot play until zero!')
+        }
+        const dropdown = document.querySelector('[data-dropdown]');
+        const icon = document.querySelector('.settings-icon');
+        dropdown.classList.remove('active');
+        icon.classList.remove('rotate-icon');
+    } else {
+        P1.input.value = '';
+        P2.input.value = '';
+        maxScoreInput.value = maxScore;
+        alert('Finish & restart the game before!');
+    }
+})
+
+document.addEventListener('click', e => {
+    const isDropdownBtn = e.target.matches('[data-dropdown-btn]');
+    if (!isDropdownBtn && e.target.closest('[data-dropdown]') != null) return;
+    
+    let activeDropdown = null;
+    let icon = document.querySelector('.settings-icon');
+    if (isDropdownBtn) {
+        activeDropdown = e.target.closest('[data-dropdown]');
+        activeDropdown.classList.toggle('active');
+        icon.classList.toggle('rotate-icon');
+    }
+
+    document.querySelectorAll('[data-dropdown].active').forEach(dropdown => {
+        if (dropdown === activeDropdown) return;
+        dropdown.classList.remove('active');
+        icon.classList.remove('rotate-icon');
+    })
 })

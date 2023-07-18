@@ -15,6 +15,28 @@
                 <span id="display-winner">Nobody</span><br>has won the game!
             </h3>
         </div>
+        <div class="settings-block" data-dropdown>
+            <button class="settings-btn">
+                <span class="settings-span" data-dropdown-btn>Settings</span>
+                <img class="settings-icon" src="./images/settings-icon.png">
+            </button>
+            <div class="settings-dropdown">
+                <div class="input-block">
+                    <label for="player1_input">Player 1:</label>
+                    <input id="player1_input" type="text" name="playerName" placeholder="New name...">
+                    <label for="player2_input">Player 2:</label>
+                    <input id="player2_input" type="text" name="playerName" placeholder="New name...">
+                    <span class="input-warning">Use up to 22 characters</span>
+                    <span class="input-warning">Both lines must be filled</span>
+                </div>
+                <hr>
+                <div class="input-block">
+                    <label for="maxscore_input">Playing up to:</label>
+                    <input id="maxscore_input" type="number" name="maxScore" value="5">
+                </div>
+                <button id="save_btn">Save</button>
+            </div>
+        </div>
         <div class="game-block">
             <div class="background-block">
                 <img src="./images/background.jpg" alt="Background game image">
